@@ -90,6 +90,8 @@ public class SpawnerManager extends GameObject {
         Action fallingBothAction = new Action() {
             @Override
             public boolean run(GameObject owner) {
+                GameObject.remove(leftSpawner);
+                GameObject.remove(rightSpawner);
                 leftSpawner = new Spawner(new Vector2D(105,-20));
                 rightSpawner = new Spawner(new Vector2D(300,-20));
                 GameObject.add(leftSpawner);
