@@ -49,7 +49,6 @@ public class GameCanvas extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-
         g.drawImage(backBuffer,0,0,null);
 
     }

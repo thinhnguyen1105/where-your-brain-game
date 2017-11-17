@@ -16,6 +16,7 @@ public class GameWindow extends JFrame {
     long lastTimeUpdate;
 
     public GameWindow(){
+        this.setLocation(250,100);
         this.setSize(384,600);
         this.canvas = new GameCanvas();
         this.addWindowListener(new WindowAdapter() {

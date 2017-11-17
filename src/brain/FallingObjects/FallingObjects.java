@@ -19,7 +19,7 @@ public class FallingObjects extends GameObject {
 
     private static ArrayList<Integer> index = new ArrayList<>(Arrays.asList(0,1,2,3));
 
-    public static int Speed = 3;
+    public static float Speed = 3;
 
     public static final int CIRCLE = 0;
     public static final int SQUARE = 1;
@@ -70,6 +70,9 @@ public class FallingObjects extends GameObject {
         if(LifesOfPlayer.life <= 0){
             LifesOfPlayer.gameOver();
         }
+    }
+    public void addSpeed(int amount){
+        this.Speed += amount;
     }
 
 }

@@ -1,5 +1,6 @@
 package brain.scenes;
 
+import bases.AudioUtils;
 import bases.GameObject;
 import bases.Scene;
 import bases.Vector2D;
@@ -9,13 +10,21 @@ import brain.background.*;
 import brain.playershape.PlayerLeftShape;
 import brain.playershape.PlayerRightShape;
 import brain.traps.TrapSpawner;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 public class GamePlayScene implements Scene {
-
-
-
+    MediaPlayer backgroundMusic;
+    
     @Override
     public void init() {
+        backgroundMusic = AudioUtils.playMedia("audios/Lobo_Loco_-_01_-_Herbie_Munster_Party_ID_731.mp3");
+        backgroundMusic.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                backgroundMusic.seek(Duration.ZERO);
+            }
+        });
 
         GameObject.add(new BackGround());
 

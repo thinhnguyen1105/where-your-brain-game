@@ -45,6 +45,10 @@ public class AudioUtils {
      * @param audioUrl
      * @return
      */
+
+    public static String uriString = new File("audios/Caravan Palace - Lone Digger Instrumental.mp3").toURI().toString();
+    public static MediaPlayer mediaPlayer = new MediaPlayer(new Media(uriString));
+
     public static MediaPlayer playMedia(String audioUrl) {
         String uriString = new File(audioUrl).toURI().toString();
         MediaPlayer mediaPlayer = new MediaPlayer(new Media(uriString));
