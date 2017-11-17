@@ -15,7 +15,7 @@ import javafx.util.Duration;
 
 public class GamePlayScene implements Scene {
     MediaPlayer backgroundMusic;
-    
+
     @Override
     public void init() {
         backgroundMusic = AudioUtils.playMedia("audios/Lobo_Loco_-_01_-_Herbie_Munster_Party_ID_731.mp3");

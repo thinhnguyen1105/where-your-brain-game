@@ -10,6 +10,6 @@ public class Program {
         GameWindow gameWindow = new GameWindow();
         gameWindow.gameLoop();
 
-        System.out.println("yes");
+        System.out.println("ye");
     }
 }
