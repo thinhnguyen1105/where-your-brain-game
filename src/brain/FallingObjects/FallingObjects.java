@@ -19,7 +19,7 @@ public class FallingObjects extends GameObject {
 
     private static ArrayList<Integer> index = new ArrayList<>(Arrays.asList(0,1,2,3));
 
-    public static float Speed = 3;
+    public static float Speed;
 
     public static final int CIRCLE = 0;
     public static final int SQUARE = 1;
@@ -30,28 +30,36 @@ public class FallingObjects extends GameObject {
         hitBox = new BoxCollider(5,5);
     }
 
-    public static FallingObjects create(int type) {
+    public static FallingObjects create(int type, float speed) {
         if (type == CIRCLE) {
-            return new Circle();
+            FallingObjects circle = new Circle();
+            circle.Speed = speed;
+            return circle;
         }
         if(type == SQUARE){
-            return new Square();
+            FallingObjects square = new Square();
+            square.Speed = speed;
+            return square;
 
         }
         if (type == DIAMOND){
-            return new Diamond();
+            FallingObjects diamond = new Diamond();
+            diamond.Speed = speed;
+            return diamond;
         }
         if(type == TRIANGLE){
-            return  new Triangle();
+            FallingObjects triangle = new Triangle();
+            triangle.Speed = speed;
+            return  triangle;
         }
         return null;
 
     }
-    public static FallingObjects changeShape(int type){
+    public static FallingObjects changeShape(int type,float speed){
         index.remove(new Integer(type));
         int random = ThreadLocalRandom.current().nextInt(0,2);
         index.add(type);
-        return create(index.get(random));
+        return create(index.get(random),speed);
     }
     public void run(){
         this.position.addUp(0,Speed);

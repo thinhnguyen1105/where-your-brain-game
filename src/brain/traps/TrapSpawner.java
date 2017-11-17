@@ -8,11 +8,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class TrapSpawner extends GameObject {
     FrameCounter frameCounter = new FrameCounter(250);
     int[] randomX = {105,300};
+    Class[] randomType = {SpeedUp.class, ShapeShifting.class};
 //to do: change spawning algorithm
     @Override
     public void run() {
         if(frameCounter.run()){
-            GameObject trap = recycle(ShapeShifting.class);
+            GameObject trap = recycle(randomType[ThreadLocalRandom.current().nextInt(0,2)]);
             randomize(trap);
             GameObject.add(trap);
             frameCounter.reset();

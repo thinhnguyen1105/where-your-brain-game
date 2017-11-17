@@ -7,6 +7,8 @@ public class Vector2D {
     public float x;
     public float y;
 
+    public static final Vector2D DOWN = new Vector2D(0,1);
+
     public Vector2D(){
         this.x = 0;
         this.y = 0;
@@ -17,7 +19,17 @@ public class Vector2D {
         this.y = y;
     }
 
+    public Vector2D rotate(float angle){
+         double rad = Math.toRadians(angle);
+         float cos = (float) Math.cos(rad);
+         float sin = (float) Math.sin(rad);
 
+         return new Vector2D(cos * x - sin * y, sin * x + cos * y);
+    }
+
+    public Vector2D scale (float factor){
+        return new Vector2D(x * factor, y * factor);
+    }
 
     public void set(float x,float y){
         this.x = x;

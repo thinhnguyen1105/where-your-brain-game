@@ -70,12 +70,8 @@ public class GameObject {
                 if (gameObject instanceof Traps && gameObject.isActive) {
                     if (((FallingObjects) this).hitBox.collideWith(((Traps) gameObject).hitBox)) {
                         gameObject.isActive = false;
-                        ((FallingObjects) this).isActive = false;
-                        System.out.println("object pos: " + ((FallingObjects) this).hitBox.position);
-                        System.out.println("trap pos: " + ((Traps) gameObject).hitBox.position);
-                        FallingObjects newobj = FallingObjects.changeShape(typeCheck(this));
-                        newobj.position.set(this.position);
-                        GameObject.add(newobj);
+                        ((Traps) gameObject).runEffect((FallingObjects)this);
+//                        ((FallingObjects) this).Speed = 9;
                     }
                 }
             }
